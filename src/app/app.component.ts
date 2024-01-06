@@ -10,6 +10,7 @@ import {PokemonFromStore} from "./model/pokemonFromStore";
 export class AppComponent implements OnInit{
   title = 'Pokemon';
   pokemonStored !:PokemonFromStore[];
+  varii:any;
 
   constructor(private service:PokemonService) {
   }
@@ -18,5 +19,8 @@ export class AppComponent implements OnInit{
     this.service.getAllPokemonFromPokestore().subscribe((val) => {
       this.pokemonStored = val;
     });
+    this.service.getReceiptPokemon().subscribe((val)=>{
+      this.varii = val;
+    })
   }
 }
